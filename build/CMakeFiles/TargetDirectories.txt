@@ -1,0 +1,5 @@
+/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/rebuild_cache.dir
+/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/edit_cache.dir
+/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/dobble.dir
+/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/package_source.dir
+/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/package.dir
