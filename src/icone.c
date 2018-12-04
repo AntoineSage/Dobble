@@ -4,5 +4,7 @@ typedef struct {
     float taille;
     float rotation;
     
-    int image;
-} Icone
+    Image image;
+} Icone;
+
+typedef int Image;
