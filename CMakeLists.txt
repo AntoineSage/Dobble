@@ -43,10 +43,11 @@ if (DOBBLE_CORRECTION)
 endif()
 
 # List of header files
-set(header
-  ${CMAKE_BINARY_DIR}/dobble-config.h
-  header/dobble.h
-  header/graphics.h)
+# set(header
+#   ${CMAKE_BINARY_DIR}/dobble-config.h
+#   header/dobble.h
+#   header/graphics.h)
+file(GLOB header header/*.h)
 
 # List of source files
 set(sources
@@ -62,7 +63,9 @@ include_directories(
   ${SDL2_TTF_INCLUDE_DIR})
 
 # Create executable
-add_executable(${PROJECT_NAME} ${header} ${sources})
+add_library(dobble_core OBJECT src/carte.c src/fichierVersPlateau.c src/icone.c src/plateau.c)
+add_executable(${PROJECT_NAME} ${header} ${sources} $<TARGET_OBJECTS:dobble_core>)
+add_executable(testFichierVersPlateau tests/testFichierVersPlateau.c $<TARGET_OBJECTS:dobble_core>)
 
 # Libraries
 target_link_libraries(

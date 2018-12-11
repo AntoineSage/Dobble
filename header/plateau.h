@@ -17,5 +17,6 @@ typedef struct {
 } Plateau;
 
 Plateau nouveauPlateau();
+void afficherPlateauPioche(Plateau* p);
 
 #endif /*_PLATEAU_*/

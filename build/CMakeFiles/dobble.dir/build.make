@@ -114,10 +114,18 @@ dobble_OBJECTS = \
 "CMakeFiles/dobble.dir/src/dobble.c.o"
 
 # External object files for target dobble
-dobble_EXTERNAL_OBJECTS =
+dobble_EXTERNAL_OBJECTS = \
+"/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/dobble_core.dir/src/carte.c.o" \
+"/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/dobble_core.dir/src/fichierVersPlateau.c.o" \
+"/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/dobble_core.dir/src/icone.c.o" \
+"/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/dobble_core.dir/src/plateau.c.o"
 
 dobble: CMakeFiles/dobble.dir/src/graphics.c.o
 dobble: CMakeFiles/dobble.dir/src/dobble.c.o
+dobble: CMakeFiles/dobble_core.dir/src/carte.c.o
+dobble: CMakeFiles/dobble_core.dir/src/fichierVersPlateau.c.o
+dobble: CMakeFiles/dobble_core.dir/src/icone.c.o
+dobble: CMakeFiles/dobble_core.dir/src/plateau.c.o
 dobble: CMakeFiles/dobble.dir/build.make
 dobble: /usr/lib/x86_64-linux-gnu/libSDL2main.a
 dobble: /usr/lib/x86_64-linux-gnu/libSDL2.so

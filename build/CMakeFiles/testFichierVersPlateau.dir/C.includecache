@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../header/carte.h
+icone.h
+-
+
+../header/fichierVersPlateau.h
+plateau.h
+-
+
+../header/icone.h
+
+../header/plateau.h
+carte.h
+-
+
+/home/antoine/INFO3S1/API/dobble/tests/testFichierVersPlateau.c
+fichierVersPlateau.h
+-
+
