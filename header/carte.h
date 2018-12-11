@@ -1,3 +1,6 @@
+#ifndef _CARTE_
+#define _CARTE_
+
 #include <icone.h>
 
 #define NB_MAX_ICONES_CARTES 50
@@ -7,3 +10,7 @@ typedef struct {
     int nbIcones;
 	float xcenter,ycenter;
 } Carte;
+
+Carte nouvelleCarte();
+
+#endif /* _CARTE_ */
