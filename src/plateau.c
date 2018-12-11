@@ -1,6 +1,19 @@
 #include <plateau.h>
 #include <stdio.h>
 
+Image Clic_a_l_interieur(Plateau P, int xclic, int yclic){
+	
+	int i;
+	Image I=-1;
+	Carte H=P.haut;
+	for (i=0; i<H.nbIcones;i++){
+		if (estDansIcone(H.icones[i],xclic,yclic){
+			I=H.icones[i].image;
+		}
+	}
+	return I;
+}
+
 Plateau nouveauPlateau() {
     Plateau plateau;
     plateau.nbCartes = 0; // Temp
@@ -25,3 +38,4 @@ void afficherPlateauPioche(Plateau* p) {
         printf("\n");
     }
 }
+
