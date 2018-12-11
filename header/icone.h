@@ -1,3 +1,8 @@
+#ifndef _ICONE_
+#define _ICONE_
+
+typedef int Image;
+
 typedef struct {
     float distance;
     float angle;
@@ -7,4 +12,7 @@ typedef struct {
     Image image;
 } Icone;
 
-typedef int Image;
+
+Icone nouvelIcone();
+
+#endif /* _ICONE_ */
