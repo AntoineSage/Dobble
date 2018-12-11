@@ -15,6 +15,6 @@ typedef struct {
 
 Icone nouvelIcone();
 
-bool estDansIcone(Icone I, carte C, int x, int y);
+int estDansIcone(Icone I, int xcentreCarte, int ycentreCarte, int x, int y);
 
 #endif /* _ICONE_ */

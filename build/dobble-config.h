@@ -12,7 +12,7 @@
  */
 
 /* Chemin d'accès au dossier de données du projet (data) */
-#define DATA_DIRECTORY "/home/antoine/INFO3S1/API/dobble/data"
+#define DATA_DIRECTORY "/home/alexis/API/Projet/DobbleGit/Dobble/data"
 
 /* Echelle de la fenêtre de rendu, à ajuster en fonction de la taille de l'écran */
 #define WIN_SCALE 1.0

@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/antoine/INFO3S1/API/dobble/src/dobble.c" "/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/dobble.dir/src/dobble.c.o"
-  "/home/antoine/INFO3S1/API/dobble/src/graphics.c" "/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/dobble.dir/src/graphics.c.o"
+  "/home/alexis/API/Projet/DobbleGit/Dobble/src/dobble.c" "/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/dobble.dir/src/dobble.c.o"
+  "/home/alexis/API/Projet/DobbleGit/Dobble/src/graphics.c" "/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/dobble.dir/src/graphics.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

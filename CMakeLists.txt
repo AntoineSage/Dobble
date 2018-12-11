@@ -62,7 +62,10 @@ include_directories(
   ${SDL2_TTF_INCLUDE_DIR})
 
 # Create executable
-add_executable(${PROJECT_NAME} ${header} ${sources})
+add_library(dobble_core OBJECT src/carte.c src/fichierVersPlateau.c src/icone.c src/plateau.c)
+add_executable(${PROJECT_NAME} ${header} ${sources} $<TARGET_OBJECTS:dobble_core>)
+add_executable(testFichierVersPlateau tests/testFichierVersPlateau.c $<TARGET_OBJECTS:dobble_core>)
+add_executable(testClic tests/testClic.c $<TARGET_OBJECTS:dobble_core>)
 
 # Libraries
 target_link_libraries(
@@ -71,6 +74,14 @@ target_link_libraries(
   ${SDL2_LIBRARY}
   ${SDL2_IMAGE_LIBRARIES}
   ${SDL2_TTF_LIBRARIES})
+
+target_link_libraries(
+  testClic
+  m)
+
+target_link_libraries(
+  testFichierVersPlateau
+  m)
 
 # Archive maker
 set(CPACK_SOURCE_GENERATOR "TGZ")

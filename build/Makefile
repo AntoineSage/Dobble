@@ -51,10 +51,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/antoine/INFO3S1/API/dobble
+CMAKE_SOURCE_DIR = /home/alexis/API/Projet/DobbleGit/Dobble
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/antoine/INFO3S1/API/dobble/build
+CMAKE_BINARY_DIR = /home/alexis/API/Projet/DobbleGit/Dobble/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -81,17 +81,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target package_source
-package_source:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/antoine/INFO3S1/API/dobble/build/CPackSourceConfig.cmake
-.PHONY : package_source
-
-# Special rule for the target package_source
-package_source/fast: package_source
-
-.PHONY : package_source/fast
-
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
@@ -103,11 +92,22 @@ package/fast: package
 
 .PHONY : package/fast
 
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/alexis/API/Projet/DobbleGit/Dobble/build/CPackSourceConfig.cmake
+.PHONY : package_source
+
+# Special rule for the target package_source
+package_source/fast: package_source
+
+.PHONY : package_source/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/antoine/INFO3S1/API/dobble/build/CMakeFiles /home/antoine/INFO3S1/API/dobble/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles /home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/antoine/INFO3S1/API/dobble/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -148,6 +148,72 @@ dobble/fast:
 	$(MAKE) -f CMakeFiles/dobble.dir/build.make CMakeFiles/dobble.dir/build
 .PHONY : dobble/fast
 
+#=============================================================================
+# Target rules for targets named testClic
+
+# Build rule for target.
+testClic: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 testClic
+.PHONY : testClic
+
+# fast build rule for target.
+testClic/fast:
+	$(MAKE) -f CMakeFiles/testClic.dir/build.make CMakeFiles/testClic.dir/build
+.PHONY : testClic/fast
+
+#=============================================================================
+# Target rules for targets named dobble_core
+
+# Build rule for target.
+dobble_core: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dobble_core
+.PHONY : dobble_core
+
+# fast build rule for target.
+dobble_core/fast:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/build
+.PHONY : dobble_core/fast
+
+#=============================================================================
+# Target rules for targets named testFichierVersPlateau
+
+# Build rule for target.
+testFichierVersPlateau: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 testFichierVersPlateau
+.PHONY : testFichierVersPlateau
+
+# fast build rule for target.
+testFichierVersPlateau/fast:
+	$(MAKE) -f CMakeFiles/testFichierVersPlateau.dir/build.make CMakeFiles/testFichierVersPlateau.dir/build
+.PHONY : testFichierVersPlateau/fast
+
+src/carte.o: src/carte.c.o
+
+.PHONY : src/carte.o
+
+# target to build an object file
+src/carte.c.o:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/src/carte.c.o
+.PHONY : src/carte.c.o
+
+src/carte.i: src/carte.c.i
+
+.PHONY : src/carte.i
+
+# target to preprocess a source file
+src/carte.c.i:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/src/carte.c.i
+.PHONY : src/carte.c.i
+
+src/carte.s: src/carte.c.s
+
+.PHONY : src/carte.s
+
+# target to generate assembly for a file
+src/carte.c.s:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/src/carte.c.s
+.PHONY : src/carte.c.s
+
 src/dobble.o: src/dobble.c.o
 
 .PHONY : src/dobble.o
@@ -174,6 +240,33 @@ src/dobble.s: src/dobble.c.s
 src/dobble.c.s:
 	$(MAKE) -f CMakeFiles/dobble.dir/build.make CMakeFiles/dobble.dir/src/dobble.c.s
 .PHONY : src/dobble.c.s
+
+src/fichierVersPlateau.o: src/fichierVersPlateau.c.o
+
+.PHONY : src/fichierVersPlateau.o
+
+# target to build an object file
+src/fichierVersPlateau.c.o:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/src/fichierVersPlateau.c.o
+.PHONY : src/fichierVersPlateau.c.o
+
+src/fichierVersPlateau.i: src/fichierVersPlateau.c.i
+
+.PHONY : src/fichierVersPlateau.i
+
+# target to preprocess a source file
+src/fichierVersPlateau.c.i:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/src/fichierVersPlateau.c.i
+.PHONY : src/fichierVersPlateau.c.i
+
+src/fichierVersPlateau.s: src/fichierVersPlateau.c.s
+
+.PHONY : src/fichierVersPlateau.s
+
+# target to generate assembly for a file
+src/fichierVersPlateau.c.s:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/src/fichierVersPlateau.c.s
+.PHONY : src/fichierVersPlateau.c.s
 
 src/graphics.o: src/graphics.c.o
 
@@ -202,6 +295,114 @@ src/graphics.c.s:
 	$(MAKE) -f CMakeFiles/dobble.dir/build.make CMakeFiles/dobble.dir/src/graphics.c.s
 .PHONY : src/graphics.c.s
 
+src/icone.o: src/icone.c.o
+
+.PHONY : src/icone.o
+
+# target to build an object file
+src/icone.c.o:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/src/icone.c.o
+.PHONY : src/icone.c.o
+
+src/icone.i: src/icone.c.i
+
+.PHONY : src/icone.i
+
+# target to preprocess a source file
+src/icone.c.i:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/src/icone.c.i
+.PHONY : src/icone.c.i
+
+src/icone.s: src/icone.c.s
+
+.PHONY : src/icone.s
+
+# target to generate assembly for a file
+src/icone.c.s:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/src/icone.c.s
+.PHONY : src/icone.c.s
+
+src/plateau.o: src/plateau.c.o
+
+.PHONY : src/plateau.o
+
+# target to build an object file
+src/plateau.c.o:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/src/plateau.c.o
+.PHONY : src/plateau.c.o
+
+src/plateau.i: src/plateau.c.i
+
+.PHONY : src/plateau.i
+
+# target to preprocess a source file
+src/plateau.c.i:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/src/plateau.c.i
+.PHONY : src/plateau.c.i
+
+src/plateau.s: src/plateau.c.s
+
+.PHONY : src/plateau.s
+
+# target to generate assembly for a file
+src/plateau.c.s:
+	$(MAKE) -f CMakeFiles/dobble_core.dir/build.make CMakeFiles/dobble_core.dir/src/plateau.c.s
+.PHONY : src/plateau.c.s
+
+tests/testClic.o: tests/testClic.c.o
+
+.PHONY : tests/testClic.o
+
+# target to build an object file
+tests/testClic.c.o:
+	$(MAKE) -f CMakeFiles/testClic.dir/build.make CMakeFiles/testClic.dir/tests/testClic.c.o
+.PHONY : tests/testClic.c.o
+
+tests/testClic.i: tests/testClic.c.i
+
+.PHONY : tests/testClic.i
+
+# target to preprocess a source file
+tests/testClic.c.i:
+	$(MAKE) -f CMakeFiles/testClic.dir/build.make CMakeFiles/testClic.dir/tests/testClic.c.i
+.PHONY : tests/testClic.c.i
+
+tests/testClic.s: tests/testClic.c.s
+
+.PHONY : tests/testClic.s
+
+# target to generate assembly for a file
+tests/testClic.c.s:
+	$(MAKE) -f CMakeFiles/testClic.dir/build.make CMakeFiles/testClic.dir/tests/testClic.c.s
+.PHONY : tests/testClic.c.s
+
+tests/testFichierVersPlateau.o: tests/testFichierVersPlateau.c.o
+
+.PHONY : tests/testFichierVersPlateau.o
+
+# target to build an object file
+tests/testFichierVersPlateau.c.o:
+	$(MAKE) -f CMakeFiles/testFichierVersPlateau.dir/build.make CMakeFiles/testFichierVersPlateau.dir/tests/testFichierVersPlateau.c.o
+.PHONY : tests/testFichierVersPlateau.c.o
+
+tests/testFichierVersPlateau.i: tests/testFichierVersPlateau.c.i
+
+.PHONY : tests/testFichierVersPlateau.i
+
+# target to preprocess a source file
+tests/testFichierVersPlateau.c.i:
+	$(MAKE) -f CMakeFiles/testFichierVersPlateau.dir/build.make CMakeFiles/testFichierVersPlateau.dir/tests/testFichierVersPlateau.c.i
+.PHONY : tests/testFichierVersPlateau.c.i
+
+tests/testFichierVersPlateau.s: tests/testFichierVersPlateau.c.s
+
+.PHONY : tests/testFichierVersPlateau.s
+
+# target to generate assembly for a file
+tests/testFichierVersPlateau.c.s:
+	$(MAKE) -f CMakeFiles/testFichierVersPlateau.dir/build.make CMakeFiles/testFichierVersPlateau.dir/tests/testFichierVersPlateau.c.s
+.PHONY : tests/testFichierVersPlateau.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -211,14 +412,35 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... dobble"
-	@echo "... package_source"
+	@echo "... testClic"
+	@echo "... dobble_core"
 	@echo "... package"
+	@echo "... testFichierVersPlateau"
+	@echo "... package_source"
+	@echo "... src/carte.o"
+	@echo "... src/carte.i"
+	@echo "... src/carte.s"
 	@echo "... src/dobble.o"
 	@echo "... src/dobble.i"
 	@echo "... src/dobble.s"
+	@echo "... src/fichierVersPlateau.o"
+	@echo "... src/fichierVersPlateau.i"
+	@echo "... src/fichierVersPlateau.s"
 	@echo "... src/graphics.o"
 	@echo "... src/graphics.i"
 	@echo "... src/graphics.s"
+	@echo "... src/icone.o"
+	@echo "... src/icone.i"
+	@echo "... src/icone.s"
+	@echo "... src/plateau.o"
+	@echo "... src/plateau.i"
+	@echo "... src/plateau.s"
+	@echo "... tests/testClic.o"
+	@echo "... tests/testClic.i"
+	@echo "... tests/testClic.s"
+	@echo "... tests/testFichierVersPlateau.o"
+	@echo "... tests/testFichierVersPlateau.i"
+	@echo "... tests/testFichierVersPlateau.s"
 .PHONY : help
 
 

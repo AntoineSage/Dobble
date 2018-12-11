@@ -17,6 +17,7 @@ typedef struct {
 } Plateau;
 
 Plateau nouveauPlateau();
+void afficherPlateauPioche(Plateau* p);
 
 Image Clic_a_l_interieur(Plateau P, int xclic, int yclic);
 

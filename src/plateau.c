@@ -1,4 +1,5 @@
-#include "plateau.h"
+#include <plateau.h>
+#include <stdio.h>
 
 Image Clic_a_l_interieur(Plateau P, int xclic, int yclic){
 	
@@ -6,7 +7,7 @@ Image Clic_a_l_interieur(Plateau P, int xclic, int yclic){
 	Image I=-1;
 	Carte H=P.haut;
 	for (i=0; i<H.nbIcones;i++){
-		if (estDansIcone(H.icones[i],H,xclic,yclic){
+		if (estDansIcone(H.icones[i],H.xcenter, H.ycenter,xclic,yclic)==1){
 			I=H.icones[i].image;
 		}
 	}
@@ -15,13 +16,16 @@ Image Clic_a_l_interieur(Plateau P, int xclic, int yclic){
 
 Plateau nouveauPlateau() {
     Plateau plateau;
-        
-    printf("Initialisation d'un nouveau plateau \n ATTENTION, RIEN N'A ETE FAIS PENDANT L'INITIALISATION DU NOUVEAU TABLEAU\n");
+
+    plateau.nbCartes = 0; // Temp
+
+    printf("Initialisation d'un nouveau plateau \n ATTENTION, RIEN N'A ETE FAIS PENDANT L'INITIALISATION DU NOVUEAU TABLEAU\n");
+
 
     return plateau;
 }
 
-void affichetPlateauPioche(Plateau* p) {
+void afficherPlateauPioche(Plateau* p) {
     int i;
     for(i = 0 ; i < p -> nbCartes; i++) {
         printf("Carte %d : ", i+1);
@@ -30,7 +34,7 @@ void affichetPlateauPioche(Plateau* p) {
 
         int j;
         for(j = 0; j < carte -> nbIcones; j++) {
-            printf(" %d", &(carte -> icones[j]) -> image);
+            printf(" %d", (&(carte -> icones[j])) -> image);
         }
 
         printf("\n");

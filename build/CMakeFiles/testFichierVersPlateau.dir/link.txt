@@ -1,0 +1,1 @@
+/usr/bin/cc -Wall -Werror  -g  -rdynamic CMakeFiles/testFichierVersPlateau.dir/tests/testFichierVersPlateau.c.o CMakeFiles/dobble_core.dir/src/carte.c.o CMakeFiles/dobble_core.dir/src/fichierVersPlateau.c.o CMakeFiles/dobble_core.dir/src/icone.c.o CMakeFiles/dobble_core.dir/src/plateau.c.o  -o testFichierVersPlateau -lm 

@@ -1,5 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <fichierVersPlateau.h>
+
+FILE* ouvertureFichier(char *nomFichier, char *Mode);
 
 Plateau fichierVersPlateau(char *nomFichier){
 

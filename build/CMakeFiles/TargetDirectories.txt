@@ -1,5 +1,8 @@
-/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/rebuild_cache.dir
-/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/edit_cache.dir
-/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/dobble.dir
-/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/package_source.dir
-/home/antoine/INFO3S1/API/dobble/build/CMakeFiles/package.dir
+/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/rebuild_cache.dir
+/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/edit_cache.dir
+/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/dobble.dir
+/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/testClic.dir
+/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/dobble_core.dir
+/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/package.dir
+/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/testFichierVersPlateau.dir
+/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/package_source.dir

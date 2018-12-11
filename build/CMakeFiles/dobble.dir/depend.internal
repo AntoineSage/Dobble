@@ -4,10 +4,10 @@
 CMakeFiles/dobble.dir/src/dobble.c.o
  ../header/dobble.h
  ../header/graphics.h
- /home/antoine/INFO3S1/API/dobble/src/dobble.c
+ /home/alexis/API/Projet/DobbleGit/Dobble/src/dobble.c
  dobble-config.h
 CMakeFiles/dobble.dir/src/graphics.c.o
  ../header/dobble.h
  ../header/graphics.h
- /home/antoine/INFO3S1/API/dobble/src/graphics.c
+ /home/alexis/API/Projet/DobbleGit/Dobble/src/graphics.c
  dobble-config.h

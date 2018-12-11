@@ -10,7 +10,7 @@
 
 ../header/graphics.h
 
-/home/antoine/INFO3S1/API/dobble/src/dobble.c
+/home/alexis/API/Projet/DobbleGit/Dobble/src/dobble.c
 math.h
 -
 stdbool.h
@@ -22,13 +22,13 @@ stdlib.h
 SDL2/SDL.h
 -
 dobble-config.h
-/home/antoine/INFO3S1/API/dobble/src/dobble-config.h
+/home/alexis/API/Projet/DobbleGit/Dobble/src/dobble-config.h
 dobble.h
-/home/antoine/INFO3S1/API/dobble/src/dobble.h
+/home/alexis/API/Projet/DobbleGit/Dobble/src/dobble.h
 graphics.h
-/home/antoine/INFO3S1/API/dobble/src/graphics.h
+/home/alexis/API/Projet/DobbleGit/Dobble/src/graphics.h
 
-/home/antoine/INFO3S1/API/dobble/src/graphics.c
+/home/alexis/API/Projet/DobbleGit/Dobble/src/graphics.c
 stdbool.h
 -
 SDL2/SDL.h
@@ -38,11 +38,11 @@ SDL2/SDL_image.h
 SDL2/SDL_ttf.h
 -
 dobble-config.h
-/home/antoine/INFO3S1/API/dobble/src/dobble-config.h
+/home/alexis/API/Projet/DobbleGit/Dobble/src/dobble-config.h
 dobble.h
-/home/antoine/INFO3S1/API/dobble/src/dobble.h
+/home/alexis/API/Projet/DobbleGit/Dobble/src/dobble.h
 graphics.h
-/home/antoine/INFO3S1/API/dobble/src/graphics.h
+/home/alexis/API/Projet/DobbleGit/Dobble/src/graphics.h
 
 dobble-config.h
 

@@ -55,4 +55,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/dobble.dir/DependInfo.cmake"
+  "CMakeFiles/testClic.dir/DependInfo.cmake"
+  "CMakeFiles/dobble_core.dir/DependInfo.cmake"
+  "CMakeFiles/testFichierVersPlateau.dir/DependInfo.cmake"
   )

@@ -46,10 +46,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/antoine/INFO3S1/API/dobble
+CMAKE_SOURCE_DIR = /home/alexis/API/Projet/DobbleGit/Dobble
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/antoine/INFO3S1/API/dobble/build
+CMAKE_BINARY_DIR = /home/alexis/API/Projet/DobbleGit/Dobble/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/dobble.dir/depend.make
@@ -62,16 +62,16 @@ include CMakeFiles/dobble.dir/flags.make
 
 CMakeFiles/dobble.dir/src/graphics.c.o: CMakeFiles/dobble.dir/flags.make
 CMakeFiles/dobble.dir/src/graphics.c.o: ../src/graphics.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/antoine/INFO3S1/API/dobble/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/dobble.dir/src/graphics.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/dobble.dir/src/graphics.c.o   -c /home/antoine/INFO3S1/API/dobble/src/graphics.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/dobble.dir/src/graphics.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/dobble.dir/src/graphics.c.o   -c /home/alexis/API/Projet/DobbleGit/Dobble/src/graphics.c
 
 CMakeFiles/dobble.dir/src/graphics.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/dobble.dir/src/graphics.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/antoine/INFO3S1/API/dobble/src/graphics.c > CMakeFiles/dobble.dir/src/graphics.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alexis/API/Projet/DobbleGit/Dobble/src/graphics.c > CMakeFiles/dobble.dir/src/graphics.c.i
 
 CMakeFiles/dobble.dir/src/graphics.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/dobble.dir/src/graphics.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/antoine/INFO3S1/API/dobble/src/graphics.c -o CMakeFiles/dobble.dir/src/graphics.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alexis/API/Projet/DobbleGit/Dobble/src/graphics.c -o CMakeFiles/dobble.dir/src/graphics.c.s
 
 CMakeFiles/dobble.dir/src/graphics.c.o.requires:
 
@@ -86,16 +86,16 @@ CMakeFiles/dobble.dir/src/graphics.c.o.provides.build: CMakeFiles/dobble.dir/src
 
 CMakeFiles/dobble.dir/src/dobble.c.o: CMakeFiles/dobble.dir/flags.make
 CMakeFiles/dobble.dir/src/dobble.c.o: ../src/dobble.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/antoine/INFO3S1/API/dobble/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/dobble.dir/src/dobble.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/dobble.dir/src/dobble.c.o   -c /home/antoine/INFO3S1/API/dobble/src/dobble.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/dobble.dir/src/dobble.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/dobble.dir/src/dobble.c.o   -c /home/alexis/API/Projet/DobbleGit/Dobble/src/dobble.c
 
 CMakeFiles/dobble.dir/src/dobble.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/dobble.dir/src/dobble.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/antoine/INFO3S1/API/dobble/src/dobble.c > CMakeFiles/dobble.dir/src/dobble.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alexis/API/Projet/DobbleGit/Dobble/src/dobble.c > CMakeFiles/dobble.dir/src/dobble.c.i
 
 CMakeFiles/dobble.dir/src/dobble.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/dobble.dir/src/dobble.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/antoine/INFO3S1/API/dobble/src/dobble.c -o CMakeFiles/dobble.dir/src/dobble.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alexis/API/Projet/DobbleGit/Dobble/src/dobble.c -o CMakeFiles/dobble.dir/src/dobble.c.s
 
 CMakeFiles/dobble.dir/src/dobble.c.o.requires:
 
@@ -114,17 +114,25 @@ dobble_OBJECTS = \
 "CMakeFiles/dobble.dir/src/dobble.c.o"
 
 # External object files for target dobble
-dobble_EXTERNAL_OBJECTS =
+dobble_EXTERNAL_OBJECTS = \
+"/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/dobble_core.dir/src/carte.c.o" \
+"/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/dobble_core.dir/src/fichierVersPlateau.c.o" \
+"/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/dobble_core.dir/src/icone.c.o" \
+"/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/dobble_core.dir/src/plateau.c.o"
 
 dobble: CMakeFiles/dobble.dir/src/graphics.c.o
 dobble: CMakeFiles/dobble.dir/src/dobble.c.o
+dobble: CMakeFiles/dobble_core.dir/src/carte.c.o
+dobble: CMakeFiles/dobble_core.dir/src/fichierVersPlateau.c.o
+dobble: CMakeFiles/dobble_core.dir/src/icone.c.o
+dobble: CMakeFiles/dobble_core.dir/src/plateau.c.o
 dobble: CMakeFiles/dobble.dir/build.make
 dobble: /usr/lib/x86_64-linux-gnu/libSDL2main.a
 dobble: /usr/lib/x86_64-linux-gnu/libSDL2.so
 dobble: /usr/lib/x86_64-linux-gnu/libSDL2_image.so
 dobble: /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so
 dobble: CMakeFiles/dobble.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/antoine/INFO3S1/API/dobble/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable dobble"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable dobble"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dobble.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -142,6 +150,6 @@ CMakeFiles/dobble.dir/clean:
 .PHONY : CMakeFiles/dobble.dir/clean
 
 CMakeFiles/dobble.dir/depend:
-	cd /home/antoine/INFO3S1/API/dobble/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/antoine/INFO3S1/API/dobble /home/antoine/INFO3S1/API/dobble /home/antoine/INFO3S1/API/dobble/build /home/antoine/INFO3S1/API/dobble/build /home/antoine/INFO3S1/API/dobble/build/CMakeFiles/dobble.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/alexis/API/Projet/DobbleGit/Dobble/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alexis/API/Projet/DobbleGit/Dobble /home/alexis/API/Projet/DobbleGit/Dobble /home/alexis/API/Projet/DobbleGit/Dobble/build /home/alexis/API/Projet/DobbleGit/Dobble/build /home/alexis/API/Projet/DobbleGit/Dobble/build/CMakeFiles/dobble.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/dobble.dir/depend
 
