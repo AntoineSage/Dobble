@@ -15,4 +15,6 @@ typedef struct {
 
 Icone nouvelIcone();
 
+int estDansIcone(Icone I, int xcentreCarte, int ycentreCarte, int x, int y);
+
 #endif /* _ICONE_ */

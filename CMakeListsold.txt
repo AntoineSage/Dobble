@@ -43,10 +43,11 @@ if (DOBBLE_CORRECTION)
 endif()
 
 # List of header files
-set(header
-  ${CMAKE_BINARY_DIR}/dobble-config.h
-  header/dobble.h
-  header/graphics.h)
+# set(header
+#   ${CMAKE_BINARY_DIR}/dobble-config.h
+#   header/dobble.h
+#   header/graphics.h)
+file(GLOB header header/*.h)
 
 # List of source files
 set(sources
@@ -74,14 +75,6 @@ target_link_libraries(
   ${SDL2_LIBRARY}
   ${SDL2_IMAGE_LIBRARIES}
   ${SDL2_TTF_LIBRARIES})
-
-target_link_libraries(
-  testClic
-  m)
-
-target_link_libraries(
-  testFichierVersPlateau
-  m)
 
 # Archive maker
 set(CPACK_SOURCE_GENERATOR "TGZ")
