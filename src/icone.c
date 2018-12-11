@@ -6,7 +6,7 @@ int estDansIcone(Icone I, int xcentreCarte, int ycentreCarte, int x, int y){
 	int dedans=0;
 	float xcentre=xcentreCarte+I.distance*cos((float)(I.angle));
 	float ycentre=ycentreCarte+I.distance*sin((float)(I.angle));
-	if (sqrt((xcentre-x)*(xcentre-x)+(ycentre-y)*(ycentre-y))<I.taille*0.5){
+	if (sqrt((xcentre-x)*(xcentre-x)+(ycentre-y)*(ycentre-y))<=I.taille*0.5){
 		dedans=1;
 	}
 	return dedans;
