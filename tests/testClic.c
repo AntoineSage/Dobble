@@ -24,8 +24,8 @@ int main(){
 	//def carte
 	Carte C;
 	C.nbIcones=2;
-	C.icones[0]=I2;
-	C.icones[1]=I1;
+	C.icones[0]=I1;
+	C.icones[1]=I2;
 	C.xcenter=3.0;
 	C.ycenter=4.0;
 
@@ -33,7 +33,7 @@ int main(){
 	Plateau P;
 	P.haut=C;
 
-	if (Clic_a_l_interieur(P, xclic, yclic)!=11){
+	if (Clic_a_l_interieur(P, xclic, yclic)!=22){
 		printf("%d\n",Clic_a_l_interieur(P, xclic, yclic));
 		printf("Il y a un problème avec Clic_a_l'interieur\n");
 	}
