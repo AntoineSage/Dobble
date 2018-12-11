@@ -18,4 +18,6 @@ typedef struct {
 
 Plateau nouveauPlateau();
 
+Image Clic_a_l_interieur(Plateau P, int xclic, int yclic);
+
 #endif /*_PLATEAU_*/
