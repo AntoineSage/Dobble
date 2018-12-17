@@ -11,14 +11,14 @@ int main(){
 	I1.image=(Image)11;
 	I1.distance=2.0;
 	I1.angle=45.0;
-	I1.taille=2.0;
+	I1.scale=2.0;
 	I1.rotation=0;
 
 	Icone I2;
 	I2.image=22;
 	I2.distance=2.0;
 	I2.angle=-45.0;
-	I2.taille=2.0;
+	I2.scale=2.0;
 	I2.rotation=0;
 
 	//def carte

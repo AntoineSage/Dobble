@@ -50,13 +50,16 @@ typedef struct
 void getIconLocationInMatrix(int iconId, int *posX, int *posY)
 {
 	int iconPerLine = g.matrixWidth / ICON_SIZE;
+
 	int line = iconId / iconPerLine;
 	int column = iconId % iconPerLine;
+
+	*posX = column * ICON_SIZE;
+	*posY = line * ICON_SIZE;
+
 	// TODO: Calculer la position de l'icône iconId dans la matrice d'icônes
 	// g.matrixWidth (resp. g.matrixHeight) sont la largeur (resp. hauteur) de la matrice d'icônes, en pixels
 	// Les icônes sont de taille ICON_SIZE (défini dans build/dobble-config.h)
-	*posX = line * ICON_SIZE;
-	*posY = column * ICON_SIZE;
 }
 
 /****************** METHODES UTILITAIRES ******************/

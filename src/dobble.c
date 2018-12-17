@@ -8,6 +8,7 @@
 #include "dobble-config.h"
 #include "dobble.h"
 #include "graphics.h"
+#include "time.h"
 
 /// Etat du compte à rebous (lancé/non lancé)
 static bool timerRunning = false;
@@ -84,11 +85,13 @@ void renderScene()
 	drawCardShape(currentCard, 5, 252, 252, 252, 155, 119, 170);
 
 	// Affichage des icônes de la carte du bas (régulièrement en cercle)
+	int i = 0;
 	for (angle = 0.; angle < 360.; angle += 360. / 7.)
 	{
 		rotation = sin(angle) * angle + 70.;
 
-		drawIcon(currentCard, 0, radius, angle, rotation, scale, NULL, NULL);
+		drawIcon(currentCard, i + 6, radius, angle, rotation, scale, NULL, NULL);
+		i++;
 	}
 	rotation = 70.;
 	drawIcon(currentCard, 0, 0., angle, rotation, scale, NULL, NULL);
@@ -100,6 +103,7 @@ void renderScene()
 
 int main(int argc, char **argv)
 {
+	srand(time(NULL));
 
 	if (!initializeGraphics())
 	{
