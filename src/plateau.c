@@ -9,6 +9,7 @@ Image Clic_a_l_interieur(Plateau P, int xclic, int yclic){
 	for (i=0; i<H.nbIcones;i++){
 		if (estDansIcone(H.icones[i],H.xcenter, H.ycenter,xclic,yclic)==1){
 			I=H.icones[i].image;
+			break;
 		}
 	}
 	return I;
