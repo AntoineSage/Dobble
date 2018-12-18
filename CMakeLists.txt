@@ -67,8 +67,8 @@ add_executable(${PROJECT_NAME} ${header} ${sources} $<TARGET_OBJECTS:dobble_core
 add_executable(testFichierVersPlateau tests/testFichierVersPlateau.c $<TARGET_OBJECTS:dobble_core>)
 add_executable(testRandomLocation tests/testRandomLocation.c $<TARGET_OBJECTS:dobble_core>)
 add_executable(testRandomLocationGraphic tests/testRandomLocationGraphic.c src/graphics.c $<TARGET_OBJECTS:dobble_core>)
+add_executable(testMain tests/testMain.c src/graphics.c $<TARGET_OBJECTS:dobble_core>)
 add_executable(testRandomCard tests/testRandomCard.c src/graphics.c $<TARGET_OBJECTS:dobble_core>)
-add_executable(testClic tests/testClic.c $<TARGET_OBJECTS:dobble_core>)
 
 # Libraries
 target_link_libraries(
@@ -79,9 +79,6 @@ target_link_libraries(
   ${SDL2_TTF_LIBRARIES}
   )
 
-target_link_libraries(
-  testClic
-  m)
 
 target_link_libraries(
   testFichierVersPlateau
@@ -107,6 +104,13 @@ target_link_libraries(
   ${SDL2_TTF_LIBRARIES}
   )
 
+target_link_libraries(
+  testMain
+  m
+  ${SDL2_LIBRARY}
+  ${SDL2_IMAGE_LIBRARIES}
+  ${SDL2_TTF_LIBRARIES}
+  )
 
 # Archive maker
 set(CPACK_SOURCE_GENERATOR "TGZ")
