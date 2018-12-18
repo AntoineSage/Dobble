@@ -42,3 +42,10 @@ void afficherPlateauPioche(Plateau* p) {
     }
 }
 
+void initCardsIconsPositions(Plateau* p) {
+    int i;
+    for(i = 0; i < p -> nbCartes; i++) {
+        Carte* c = &(p -> pioche[i]);
+		setIconsInCard(c);
+    }
+}

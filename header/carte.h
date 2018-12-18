@@ -16,5 +16,7 @@ Carte nouvelleCarte();
 void positionAleatoireIcones(Carte* carte);
 void updateIcones(Carte* carte);
 void computeAcceleration(Icone* icone, Carte* carte, int index);
+int carteIsValid(Carte* carte);
+void setIconsInCard(Carte* carte);
 
 #endif /* _CARTE_ */

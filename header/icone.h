@@ -6,16 +6,19 @@
 typedef int Image;
 
 typedef struct {
+    // Polaire
     float distance;
     float angle;
+
+    // Cartésien
+    Vect2 position;
+    Vect2 speed;
+    Vect2 acceleration;
+
     float scale;
     float rotation;
     
     Image image;
-
-    Vect2 position;
-    Vect2 speed;
-    Vect2 acceleration;
 } Icone;
 
 

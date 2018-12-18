@@ -421,6 +421,47 @@ void drawIcon(CardPosition card, int iconId, double radius, double angle, double
 	SDL_RenderCopyEx(g.renderer, g.iconTexture, &tmpRect, &dstRect, rotation, NULL, SDL_FLIP_NONE);
 }
 
+void drawIconCartesien(CardPosition card, int iconId, float x, float y, double rotation, double scale,
+int *centerX, int *centerY) {
+	int cardCenterX, cardCenterY;
+
+	/* Mise à l'échelle des mesures */
+	scale *= WIN_SCALE;
+
+	getCardCenter(card, &cardCenterX, &cardCenterY);
+
+	double cx = x + cardCenterX;
+	double cy = y + cardCenterY;
+
+	if (centerX)
+		*centerX = (int)cx;
+	if (centerY)
+		*centerY = (int)cy;
+
+	// Attention aux conversions entre nombres flottants et entiers
+	int destX = cx - scale * (double)(DRAW_ICON_SIZE) / 2.;
+	int destY = cy - scale * (double)(DRAW_ICON_SIZE) / 2.;
+	int origX, origY;
+
+	// Récupération de la position de l'icône dans la matrice d'icônes
+	getIconLocationInMatrix(iconId, &origX, &origY);
+
+	// Zone occupée par l'icône dans la matrice d'icônes
+	SDL_Rect srcRect = {origX, origY, ICON_SIZE, ICON_SIZE};
+	// Zone occupée par l'icône dans le rendu de la fenêtre du jeu
+	SDL_Rect dstRect = {destX, destY, DRAW_ICON_SIZE * scale, DRAW_ICON_SIZE * scale};
+	// Zone occupée par l'icône dans la texture temporaire
+	SDL_Rect tmpRect = {0, 0, ICON_SIZE, ICON_SIZE};
+
+	// Copie de l'icône dans une texture temporaire
+	SDL_SetRenderTarget(g.renderer, g.iconTexture);
+	SDL_RenderClear(g.renderer);
+	SDL_RenderCopyEx(g.renderer, g.matrixTexture, &srcRect, &tmpRect, 0.0, NULL, SDL_FLIP_NONE);
+	SDL_SetRenderTarget(g.renderer, NULL);
+
+	// Dessin de l'icône en texture temporaire vers l'écran
+	SDL_RenderCopyEx(g.renderer, g.iconTexture, &tmpRect, &dstRect, rotation, NULL, SDL_FLIP_NONE);
+}
 /****************** METHODES DE GESTION DU CYCLE DE VIE ******************/
 
 int initializeGraphics()
