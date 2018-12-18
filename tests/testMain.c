@@ -11,11 +11,12 @@
 #include "time.h"
 #include "plateau.h"
 #include <fichierVersPlateau.h>
+#include <automate.h>
 
 /// Etat du compte à rebous (lancé/non lancé)
 static bool timerRunning = false;
 static Plateau PlateauCourant;
-
+static Etat etatCourant;
 
 void onMouseMove(int x, int y)
 {
@@ -26,8 +27,19 @@ void onMouseMove(int x, int y)
 
 void onMouseClick()
 {
+    switch (etatCourant)
+    {
+        case MenuDebut:
+            etatCourant = etatSuivant(etatCourant, Play);
+            return;
+    
+        case Jeu:
+        default:
+            break;
+    }
 	printf("\ndobble: Clic de la souris.\n");
-
+    PlateauCourant.haut = choisitCarteAleatoire(&PlateauCourant);
+    requestRedraw();
 	if (timerRunning)
 	{
 		/*printf("\ndobble: Arrêt du compte à rebours.\n");
@@ -65,14 +77,30 @@ void onTimerTick()
 }
 
 
-void renderSceneTemp()
-{
-	char title[100];
+void renderSceneJeu();
+void renderSceneMenuDebut();
 
-	// Efface le contenu de la fenêtre
+void renderScene()
+{
+    switch (etatCourant)
+    {
+        case MenuDebut:
+            renderSceneMenuDebut();
+            break;
+    
+        case Jeu:
+            renderSceneJeu();
+        default:
+            break;
+    }
+}
+
+void renderSceneJeu() {
+	char title[100];
+    	// Efface le contenu de la fenêtre
 	clearWindow();
 	// Crée le titre qui sera affiché. Utile pour afficher le score.
-	sprintf(title, "RICM3-Dobble    Score %d", 100);
+	sprintf(title, "RICM3-Dobble    Score %d", PlateauCourant.Score);
 	drawText(title, WIN_WIDTH / 2, 0, Center, Top);
 
 	CardPosition currentCard = UpperCard;
@@ -99,7 +127,7 @@ void renderSceneTemp()
 	showWindow();
 }
 
-void renderScene()
+void renderSceneMenuDebut()
 {
 	char title[100];
 
@@ -130,10 +158,10 @@ int main(int argc, char **argv)
 		printf("dobble: Echec du chargement des icônes.\n");
 		return -1;
 	}
-	
-    // PlateauCourant = fichierVersPlateau(DATA_DIRECTORY "/pg28.txt");
-	// initCardsIconsPositions(&PlateauCourant);
-    // PlateauCourant.haut = PlateauCourant.pioche[0];
+	etatCourant = MenuDebut;
+    PlateauCourant = fichierVersPlateau(DATA_DIRECTORY "/pg28.txt");
+	initCardsIconsPositions(&PlateauCourant);
+    PlateauCourant.haut = PlateauCourant.pioche[0];
 
 	mainLoop();
 

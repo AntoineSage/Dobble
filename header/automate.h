@@ -1,4 +1,6 @@
 
-typedef enum {MenuDebut, Jeu, MenuFin} Etats;
+typedef enum {MenuDebut, Jeu, MenuFin} Etat;
 
-typedef enum {Play, Quitter, Perdu, Gagner, Rejouer} Transitions;
+typedef enum {Play, Quitter, Perdu, Gagner, Rejouer, RetourMenu} Transition;
+
+Etat etatSuivant(Etat etatCourant, Transition t);
