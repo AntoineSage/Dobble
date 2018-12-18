@@ -68,6 +68,7 @@ add_executable(testFichierVersPlateau tests/testFichierVersPlateau.c $<TARGET_OB
 add_executable(testRandomLocation tests/testRandomLocation.c $<TARGET_OBJECTS:dobble_core>)
 add_executable(testRandomLocationGraphic tests/testRandomLocationGraphic.c src/graphics.c $<TARGET_OBJECTS:dobble_core>)
 add_executable(testClic tests/testClic.c $<TARGET_OBJECTS:dobble_core>)
+add_executable(testCarteAleat tests/testCarteAleat.c $<TARGET_OBJECTS:dobble_core>)
 
 # Libraries
 target_link_libraries(
@@ -89,6 +90,11 @@ target_link_libraries(
 target_link_libraries(
   testRandomLocation
   m)
+
+target_link_libraries(
+  testCarteAleat
+  m)
+
 
 target_link_libraries(
   testRandomLocationGraphic

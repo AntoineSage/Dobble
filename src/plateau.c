@@ -1,5 +1,7 @@
 #include <plateau.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h> 
 
 Image Clic_a_l_interieur(Plateau P, Vect2 centerCard, Vect2 posClic){
 	
@@ -17,6 +19,7 @@ Image Clic_a_l_interieur(Plateau P, Vect2 centerCard, Vect2 posClic){
 
 Plateau nouveauPlateau() {
     Plateau plateau;
+	int i;
 
     plateau.nbCartes = 0; // Temp
 
@@ -24,6 +27,11 @@ Plateau nouveauPlateau() {
 
 	plateau.Score=0;
 	plateau.TempsRestant=100;
+
+	for (i=0;i<plateau.nbCartes;i++){
+		plateau.Marques[i]=0;
+	}
+	plateau.nbCartesMarquees=0;
 
     return plateau;
 }
@@ -42,5 +50,24 @@ void afficherPlateauPioche(Plateau* p) {
 
         printf("\n");
     }
+}
+
+Carte choisitCarteAleatoire(Plateau* P){
+ 
+	if (P->nbCartesMarquees==P->nbCartes){
+		int i;
+		for (i=0;i<P->nbCartes;i++){
+			P->Marques[i]=0;
+		}
+		P->nbCartesMarquees=0;
+	}
+	
+    int indice=rand()%(P->nbCartes);    //entre 0 et nbCartes
+	while (P->Marques[indice]==1){
+		indice=rand()%(P->nbCartes);
+	}
+	P->nbCartesMarquees++;
+	P->Marques[indice]=1;
+	return P->pioche[indice];
 }
 
