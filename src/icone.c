@@ -31,23 +31,26 @@ Icone nouvelIcone() {
 }
 
 void positionAleatoire(Icone* icone) {
-	icone -> distance = rand() % CARD_RADIUS;
-	printf("Distance : %f\n", icone -> distance);
+	float distance = rand() % CARD_RADIUS;
+	float angle = ((float)rand())/((float) RAND_MAX) * 360;
+	icone -> position = newVect2(distance * cos(angle * 2 * M_PI / 360),\
+								distance * sin(angle * 2 * M_PI / 360));
+	// printf("Distance : %f\n", icone -> distance);
 }
 
 void scaleAleatoire(Icone* icone) {
 	icone -> scale = (((float)rand())/((float) RAND_MAX))/2 + 0.6;
-	printf("Scale : %f\n", icone -> scale);
+	// printf("Scale : %f\n", icone -> scale);
 }
 
 void rotationAleatoire(Icone* icone) {
 	icone -> rotation = ((float)rand())/((float) RAND_MAX) * 360;
-	printf("Rotation : %f\n", icone -> rotation);
+	// printf("Rotation : %f\n", icone -> rotation);
 }
 
 void angleAleatoire(Icone* icone) {
 	icone -> angle = ((float)rand())/((float) RAND_MAX) * 360;
-	printf("Angle : %f\n", icone -> angle);
+	// printf("Angle : %f\n", icone -> angle);
 }
 
 void fromComplexToXY(Icone* icone) {

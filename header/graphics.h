@@ -171,6 +171,9 @@ void drawCardShape(CardPosition card, int w, Uint8 bgr, Uint8 bgg, Uint8 bgb, Ui
 void drawIcon(CardPosition card, int iconId, double radius, double angle, double rotation, double scale,
               int *centerX, int *centerY);
 
+void drawIconCartesien(CardPosition card, int iconId, float x, float y, double rotation, double scale,
+int *centerX, int *centerY);
+
 /****************** METHODES DE GESTION DU CYCLE DE VIE ******************/
 
 /**

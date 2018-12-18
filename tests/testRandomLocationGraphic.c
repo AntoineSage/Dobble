@@ -72,6 +72,10 @@ void renderScene()
 	drawCardShape(currentCard, 5, 252, 252, 252, 155, 119, 170);
 
     // -----------------------------------------------------------------
+   	int cardCenterX = 0, cardCenterY = 0;
+    getCardCenter(currentCard, &cardCenterX, &cardCenterY);
+
+    drawCircle(ic -> position.x + cardCenterX, ic -> position.y + cardCenterY, ic -> scale * ICON_SIZE / 2, 100, 0, 0, 100);
 	drawIcon(currentCard, 0, ic -> distance, ic -> angle, ic -> rotation, ic -> scale, NULL, NULL);
 	drawIcon(currentCard, 0, ic2 -> distance, ic2 -> angle, ic2 -> rotation, ic2 -> scale, NULL, NULL);
 	drawIcon(currentCard, 0, ic3 -> distance, ic3 -> angle, ic3 -> rotation, ic3 -> scale, NULL, NULL);
@@ -133,8 +137,7 @@ int main(int argc, char **argv)
 		return -1;
 	}
 
-    while(1) {
-
+    while(!carteIsValid(&carte)) {
         fromComplexToXY(ic);
         fromComplexToXY(ic2);
         fromComplexToXY(ic3);
@@ -144,6 +147,7 @@ int main(int argc, char **argv)
         fromComplexToXY(ic7);
         fromComplexToXY(ic8);
         fromComplexToXY(ic9);
+
         updateIcones(&carte);
         // updateIcone(ic);
         fromXYtoComplex(ic);
@@ -159,9 +163,7 @@ int main(int argc, char **argv)
         renderScene();
         usleep(10);
     }
-
-	freeGraphics();
-
-
+    freeGraphics();
+    printf("done");
 	return 0;
 }

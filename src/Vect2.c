@@ -8,8 +8,13 @@ Vect2 newVect2(float x, float y) {
 }
 
 float moduleVect2(Vect2 vect) {
-    return(sqrt(vect.x*vect.x + vect.y*vect.y));
+    return(sqrt(moduleSquaredVect2(vect)));
 }
+
+float moduleSquaredVect2(Vect2 vect) {
+    return(vect.x*vect.x + vect.y*vect.y);
+}
+
 
 Vect2 divideVect2(Vect2 vect, float divider) {
     return newVect2(vect.x / divider, vect.y  /divider);
@@ -34,4 +39,8 @@ Vect2 constraintVect2(Vect2 v, float max) {
 
 float distanceBetween(Vect2 v1, Vect2 v2) {
     return moduleVect2(newVect2(v1.x - v2.x, v1.y - v2.y));
+}
+
+float distanceSquaredBetween(Vect2 v1, Vect2 v2) {
+    return moduleSquaredVect2(newVect2(v1.x - v2.x, v1.y - v2.y));
 }

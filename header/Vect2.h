@@ -13,3 +13,5 @@ Vect2 divideVect2(Vect2 vect, float divider);
 Vect2 addVect2(Vect2 vect1, Vect2 vect2);
 Vect2 constraintVect2(Vect2 v, float max);
 float distanceBetween(Vect2 v1, Vect2 v2);
+float moduleSquaredVect2(Vect2 vect);
+float distanceSquaredBetween(Vect2 v1, Vect2 v2);
