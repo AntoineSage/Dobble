@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include "plateau.h"
 
-
+/* TEST A DEBUGUER SI TEMPS
 int main(){
 	int xclic=4;
 	int yclic=5;
+	int xcentreCarte;
+	int ycentreCarte;
+	Vect2 posClic=newVect2(xclic,yclic);
 
 	//def icone
 	Icone I1;
@@ -32,9 +35,12 @@ int main(){
 	//def plateau
 	Plateau P;
 	P.haut=C;
+	getCenterCard(UpperCard,&xcentreCarte, &ycentreCarte);
+	Vect2 posCarte=newVect2(xcentreCarte,ycentreCarte);
 
-	if (Clic_a_l_interieur(P, xclic, yclic)!=22){
-		printf("%d\n",Clic_a_l_interieur(P, xclic, yclic));
+
+	if (Clic_a_l_interieur(P, posCarte, posClic)!=22){
+		printf("%d\n",Clic_a_l_interieur(P, posCarte, posClic));
 		printf("Il y a un problème avec Clic_a_l'interieur\n");
 	}
 	else {
@@ -42,3 +48,4 @@ int main(){
 	}
 	return 0;
 }
+*/

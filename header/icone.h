@@ -24,7 +24,7 @@ typedef struct {
 
 Icone nouvelIcone();
 
-int estDansIcone(Icone I, int xcentreCarte, int ycentreCarte, int x, int y);
+int estDansIcone(Icone I, Vect2 centreCarte, Vect2 posClic);
 
 void positionAleatoire(Icone* icone);
 void scaleAleatoire(Icone* icone);
