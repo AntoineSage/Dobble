@@ -8,7 +8,6 @@
 typedef struct {
     Icone icones[NB_MAX_ICONES_CARTES];
     int nbIcones;
-	float xcenter,ycenter; // UTILISER LES FONCTIONS DU PROF GET_CARD_CENTER
 } Carte;
 
 Carte nouvelleCarte();

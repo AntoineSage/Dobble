@@ -6,12 +6,12 @@
 
 #define MAX_SPEED 5
 
-int estDansIcone(Icone I, int xcentreCarte, int ycentreCarte, int x, int y){ // UTLISER LES FONCTIONS DU PRF
+int estDansIcone(Icone I, Vect2 centreCarte, Vect2 posClic){
 	int dedans=0;
-	float xcentre=xcentreCarte+I.distance*cos((float)(I.angle));
-	float ycentre=ycentreCarte+I.distance*sin((float)(I.angle));
-	if (sqrt((xcentre-x)*(xcentre-x)+(ycentre-y)*(ycentre-y))<I.scale*0.5){
-
+	float xcentreIcone=(centreCarte.x)+I.distance*cos((float)(I.angle));
+	float ycentreIcone=(centreCarte.y)+I.distance*sin((float)(I.angle));
+	Vect2 centreIcone=newVect2(xcentreIcone,ycentreIcone);
+	if (distanceBetween(centreIcone, posClic)<I.scale*0.5){
 		dedans=1;
 	}
 	return dedans;

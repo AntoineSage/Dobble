@@ -9,9 +9,11 @@
 #include "dobble.h"
 #include "graphics.h"
 #include "time.h"
+#include "plateau.h"
 
 /// Etat du compte à rebous (lancé/non lancé)
 static bool timerRunning = false;
+static Plateau PlateauCourant;
 
 
 void onMouseMove(int x, int y)
@@ -27,9 +29,25 @@ void onMouseClick()
 
 	if (timerRunning)
 	{
-		printf("\ndobble: Arrêt du compte à rebours.\n");
+		/*printf("\ndobble: Arrêt du compte à rebours.\n");
 		stopTimer();
-		timerRunning = false;
+		timerRunning = false;*/
+		int xmouse, ymouse;
+		int xcentercard, ycentercard;
+
+		getCardCenter(UpperCard,&xcentercard,&ycentercard);
+		Vect2 centerCard = newVect2(xcentercard,ycentercard);
+
+		SDL_GetMouseState(&xmouse, &ymouse);
+		Vect2 posmouse=newVect2(xmouse,ymouse);
+		if (PlateauCourant.imageCommune == Clic_a_l_interieur(PlateauCourant, centerCard, posmouse)){
+			PlateauCourant.Score++;
+			PlateauCourant.TempsRestant=PlateauCourant.TempsRestant+3;	
+		}
+		else{
+			PlateauCourant.TempsRestant=PlateauCourant.TempsRestant-3;		
+		}
+
 	}
 	else
 	{
@@ -42,6 +60,7 @@ void onMouseClick()
 void onTimerTick()
 {
 	printf("\ndobble: Tic du compte à rebours\n");
+	PlateauCourant.TempsRestant=PlateauCourant.TempsRestant-1;
 }
 
 
@@ -117,7 +136,7 @@ int main(int argc, char **argv)
 		return -1;
 	}
 
-
+	PlateauCourant=nouveauPlateau();
 	mainLoop();
 
 	freeGraphics();
