@@ -5,10 +5,10 @@
 FILE* ouvertureFichier(char *nomFichier, char *Mode);
 
 Plateau fichierVersPlateau(char *nomFichier){
-
-    FILE* f = ouvertureFichier(nomFichier, "r");
-
     int nbCartes, nbIcones;
+
+    // Ouverture du fichier
+    FILE* f = ouvertureFichier(nomFichier, "r");
 
     // Lecture de l'en tête
     int nbRead = fscanf(f, "%d %d", &nbCartes, &nbIcones);
@@ -22,12 +22,14 @@ Plateau fichierVersPlateau(char *nomFichier){
     plateau.nbCartes = nbCartes;
 
     int i,j;
+    // Pour chaque carte
     for(i = 0; i < nbCartes; i++) {
 
         // Init Carte
         Carte carte = nouvelleCarte();
         carte.nbIcones = nbIcones;
 
+        // Pour chaque icone de la carte
         for(j = 0; j < nbIcones; j++) {
             // Init Icone
             Icone icone = nouvelIcone();
@@ -47,6 +49,7 @@ Plateau fichierVersPlateau(char *nomFichier){
         plateau.pioche[i] = carte;
     }
 
+    // Fermeture du fichier
     fclose(f);
     printf("Fermeture du fichier %s réussi \n", nomFichier);
 

@@ -1,6 +1,8 @@
-
+// Les 3 états de jeu possible
 typedef enum {MenuDebut, Jeu, MenuFin} Etat;
 
-typedef enum {Play, Quitter, Perdu, Gagner, Rejouer, RetourMenu} Transition;
+// Les transitions possible
+typedef enum {Play, Quitter, Perdu, Gagner, Rejouer, RetourMenu, Rien} Transition;
 
-Etat etatSuivant(Etat etatCourant, Transition t);
+void etatSuivant(Etat* etatCourant, Transition t);
+void Sortie(Etat etatSuivant);

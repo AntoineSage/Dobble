@@ -3,8 +3,8 @@
 
 int main(int argc, char const *argv[])
 {
-    Plateau p = fichierVersPlateau(DATA_DIRECTORY "/pg22.txt");
-    afficherPlateauPioche(&p);
+    // Plateau p = fichierVersPlateau(DATA_DIRECTORY "/pg22.txt");
+    // afficherPlateauPioche(&p);
 
-    return 0;
+    // return 0;
 }

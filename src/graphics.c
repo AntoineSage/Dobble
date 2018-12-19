@@ -51,16 +51,17 @@ void getIconLocationInMatrix(int iconId, int *posX, int *posY)
 {
 	int iconPerLine = g.matrixWidth / ICON_SIZE;
 
+	// La ligne de l'icone
 	int line = iconId / iconPerLine;
+
+	// La colonne de l'icone
 	int column = iconId % iconPerLine;
 
+	// Conversion en fonction de la taille de l'icone
 	*posX = column * ICON_SIZE;
 	*posY = line * ICON_SIZE;
-
-	// TODO: Calculer la position de l'icône iconId dans la matrice d'icônes
-	// g.matrixWidth (resp. g.matrixHeight) sont la largeur (resp. hauteur) de la matrice d'icônes, en pixels
-	// Les icônes sont de taille ICON_SIZE (défini dans build/dobble-config.h)
 }
+
 
 /****************** METHODES UTILITAIRES ******************/
 
@@ -421,11 +422,8 @@ void drawIcon(CardPosition card, int iconId, double radius, double angle, double
 	SDL_RenderCopyEx(g.renderer, g.iconTexture, &tmpRect, &dstRect, rotation, NULL, SDL_FLIP_NONE);
 }
 
-void drawIconCartesien(CardPosition card, int iconId, float x, float y, double rotation, double scale,
-int *centerX, int *centerY) {
+void drawIconCartesien(CardPosition card, int iconId, float x, float y, double rotation, double scale) {
 	int cardCenterX, cardCenterY;
-
-	/* Mise à l'échelle des mesures */
 	scale *= WIN_SCALE;
 
 	getCardCenter(card, &cardCenterX, &cardCenterY);
@@ -433,12 +431,6 @@ int *centerX, int *centerY) {
 	double cx = x + cardCenterX;
 	double cy = y + cardCenterY;
 
-	if (centerX)
-		*centerX = (int)cx;
-	if (centerY)
-		*centerY = (int)cy;
-
-	// Attention aux conversions entre nombres flottants et entiers
 	int destX = cx - scale * (double)(DRAW_ICON_SIZE) / 2.;
 	int destY = cy - scale * (double)(DRAW_ICON_SIZE) / 2.;
 	int origX, origY;

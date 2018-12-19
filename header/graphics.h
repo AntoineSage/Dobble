@@ -171,8 +171,24 @@ void drawCardShape(CardPosition card, int w, Uint8 bgr, Uint8 bgg, Uint8 bgb, Ui
 void drawIcon(CardPosition card, int iconId, double radius, double angle, double rotation, double scale,
               int *centerX, int *centerY);
 
-void drawIconCartesien(CardPosition card, int iconId, float x, float y, double rotation, double scale,
-int *centerX, int *centerY);
+/**
+ * drawIcon dessine un icône dans la carte spécifiée. L'emplacement de
+ * l'icône est donnée en coordonnées cartésien par rapport au centre de la carte.
+ *
+ * @param card      Indique si l'icône doit être dessiné dans la carte du
+ *                  haut ou la carte du bas.
+ * @param iconId    Numéro de l'icône à dessiner. Ce numéro est converti en
+ *                  position dans la matrice d'image par la méthode
+ *                  PositionIconeDansImage.
+ * @param x    		Position en abscisse par rapport au centre de la carte
+ * @param y     	Position en ordonnée par rapport au centre de la carte
+ * @param rotation  Angle de rotation (en degrés) de l'icône par rapport à
+ *                  son centre.
+ * @param scale     Facteur d'échelle pour le dessin de l'icône. 1.0
+ *                  correspond à la taille originale (ICON_SIZE) des icônes.
+ *                  2.0 doublerait la taille du dessin.
+ */
+void drawIconCartesien(CardPosition card, int iconId, float x, float y, double rotation, double scale);
 
 /****************** METHODES DE GESTION DU CYCLE DE VIE ******************/
 
