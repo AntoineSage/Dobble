@@ -56,15 +56,17 @@ Carte choisitCarteAleatoire(Plateau* P){
 	}
 	
     int indice=rand()%(P->nbCartes);    //entre 0 et nbCartes
+
 	// On cherche aléatoirement une carte qui n'a pas été déjà pioché
 	while (P->Marques[indice]==1){
 		indice=rand()%(P->nbCartes);
 	}
+	
 	// On marque cette carte pour ne pas la piocher de nouveau juste après
 	P->nbCartesMarquees++;
 	P->Marques[indice]=1;
 
-	//L'historique contient les indices des 3 dernieres cartes du plateau. Utile après une remise à 0
+	// L'historique contient les indices des 3 dernieres cartes du plateau. Utile après une remise à 0
 	// des cartes marquees (càd lorsque toutes les cartes ont été vues) pour éviter le risque d'avoir deux cartes
 	// identiques à la suite: la premiere avant la remise à 0, la deuxieme après.
 	// On suppose qu'il ne peut pas y avoir moins de 3 cartes sur le plateau

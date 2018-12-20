@@ -27,16 +27,20 @@ Icone nouvelIcone() {
     return icone;
 }
 
-void positionAleatoire(Icone* icone) {
-	// Fonction vouée à changer dans le futur
+void positionAleatoire(Icone* icone, int nbIcones, int i, int offset) {
+	// Calcul en complexe car plus facile pour répartir équitablement autour du cercle
 	float distance = rand() % CARD_RADIUS;
-	float angle = ((float)rand())/((float) RAND_MAX) * 2 * M_PI;
+	float angle = 2 * M_PI * i / nbIcones; // Réparti équitablement autour du cercle
 
-	icone -> position = newVect2(distance * cos(angle),\
-								distance * sin(angle));
+	// Conversion en cartésien
+	icone -> position = newVect2(distance * cos(angle + offset),\
+									distance * sin(angle + offset));
 }
 
 void scaleAleatoire(Icone* icone, int nbIcones) {
+	// Un scale aléatoire qui varie en fonction du nombre d'icones :
+	// Entre 0.5 et 1 pour 10 icones
+	// Entre 1.2 et 1.7 pour 3 icones
 	icone -> scale = (((float)rand())/((float) RAND_MAX))/2 + (0.5+(10-nbIcones)*0.1);
 
 }

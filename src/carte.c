@@ -30,16 +30,23 @@ void updateIcones(Carte* carte) {
 }
 
 void computeAcceleration(Icone* icone, Carte* carte, int index) {
+	const float FORCE_ATTRATION_CENTRE = 0.2;
+	const float DISTANCE_REPULSION_CENTRE = 30;
+
+	const float FORCE_REPULSION_CARTE = 100;
+	const float DISTANCE_REPULSION_CARTE = 4;
+
+	const float FORCE_FROTTEMENT = 1.2;
 
 	// Force d'attraction vers le centre
 	Vect2 acc = newVect2(- (&(icone -> position)) -> x, - (&(icone -> position)) -> y); // Attraction vers le centre
-	float modAcc = 5 * moduleVect2(acc); //40
-	if(modAcc < 30) { // Répulseur quand on est trop proche du centre
+	float modAcc = moduleVect2(acc);
+	if(modAcc < DISTANCE_REPULSION_CENTRE) { // Répulseur quand on est trop proche du centre
 		modAcc = -modAcc;
 	}
 
 	if(modAcc != 0) {
-		acc = divideVect2(acc, modAcc); 
+		acc = divideVect2(acc, modAcc / FORCE_ATTRATION_CENTRE); 
 	}
 
 	// Force de Collision entre deux icones
@@ -47,19 +54,23 @@ void computeAcceleration(Icone* icone, Carte* carte, int index) {
 	Vect2 accTemp = newVect2Zero();
 	for(i = 0; i < carte -> nbIcones; i++) {
 		if(i != index) {
-			if(distanceBetween(icone -> position, carte -> icones[i].position) <= (icone -> scale + carte -> icones[i].scale)*(ICON_SIZE / 2) + 2) {
+			// Si deux icônes sont trop proches les uns des autres
+			if(distanceSquaredBetween(icone -> position, carte -> icones[i].position) <= pow((icone -> scale + carte -> icones[i].scale)*(ICON_SIZE / 2) + DISTANCE_REPULSION_CARTE, 2)) {
+				// Ajouter une force de répulsion
 				accTemp = addVect2(accTemp, newVect2(icone -> position.x - carte -> icones[i].position.x, icone -> position.y - carte -> icones[i].position.y));
 			}
 		}
 	}
+
 	if(accTemp.x != 0 && accTemp.y != 0){
-		accTemp = divideVect2(accTemp, 0.01 * moduleVect2(accTemp));
+		accTemp = divideVect2(accTemp, moduleVect2(accTemp) / FORCE_REPULSION_CARTE);
 	}
 
-	// Force de frottement qui ralentit chaque icone
+	// Force de frottement qui ralentit chaque icone opposé à la vitesse
 	Vect2 accFrot = newVect2(-icone -> speed.x, -icone -> speed.y);
-	accFrot = divideVect2(accFrot, 1.2);
+	accFrot = divideVect2(accFrot, FORCE_FROTTEMENT);
 	
+	// Somme des forces
 	acc = addVect2(acc, accTemp);
 	acc = divideVect2(acc, moduleVect2(acc));
 	acc = addVect2(acc, accFrot);
@@ -88,24 +99,23 @@ int carteIsValid(Carte* carte) {
 	return 1;
 }
 
-void setIconsInCard(Carte* carte) {
-	int compteur = 0;	
-	int i;
-
+void carteAleatoire(Carte* carte) {			
 	float offset = ((float)rand())/((float) RAND_MAX) * 2 * M_PI;
-	// Initialisation aléatoire de chaque icone
+		
+	int i;
 	for(i = 0; i < carte -> nbIcones; i++) {
 		Icone* ic = &(carte -> icones[i]);
 		scaleAleatoire(ic, carte -> nbIcones);
 		rotationAleatoire(ic);
-
-		//positionAleatoire(ic);
-		float distance = rand() % CARD_RADIUS;
-		float angle = 2 * M_PI * i / (carte -> nbIcones);
-
-		ic -> position = newVect2(distance * cos(angle + offset),\
-									 distance * sin(angle + offset));
+		positionAleatoire(ic, carte -> nbIcones, i, offset);
 	}
+}
+
+void setIconsInCard(Carte* carte) {
+	int compteur = 0;	
+
+	// Initialisation aléatoire de chaque icone
+	carteAleatoire(carte);
 
 	// On les fait évoluer un minimum de 100 fois et tant qu'ils ne forment pas une carte valide
 	while(!(carteIsValid(carte))) {
@@ -113,26 +123,11 @@ void setIconsInCard(Carte* carte) {
 		Si on a fait autant d'évolutions sans que la carte ne soit valide, 
 		c'est sûrement que la carte est bloquée dans un état où elle ne peut pas être valide.
 		Donc on recommence depuis le début pour cette carte.
-		C'est une solution temporaire lente mais qui fonctionne !
+		C'est n'est pas la solution idéale, mais cela arrive rarement et permet de résoudre le problème.
 		*/
-		if(compteur > 1000) { 
-			printf("TOTO\n");
-			
-			float offset = ((float)rand())/((float) RAND_MAX) * 2 * M_PI;
-		
+		if(compteur > 1000) {
 			compteur = 0;
-			for(i = 0; i < carte -> nbIcones; i++) {
-				Icone* ic = &(carte -> icones[i]);
-				scaleAleatoire(ic, carte -> nbIcones);
-				rotationAleatoire(ic);
-
-			//positionAleatoire(ic);
-				float distance = rand() % CARD_RADIUS;
-				float angle = 2 * M_PI * i / (carte -> nbIcones);
-
-				ic -> position = newVect2(distance * cos(angle + offset),\
-					   					  distance * sin(angle + offset));
-			}
+			carteAleatoire(carte);
 		}
 
 

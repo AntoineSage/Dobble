@@ -31,6 +31,7 @@ Plateau fichierVersPlateau(char *nomFichier){
 
         // Pour chaque icone de la carte
         for(j = 0; j < nbIcones; j++) {
+            
             // Init Icone
             Icone icone = nouvelIcone();
 

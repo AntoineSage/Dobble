@@ -33,7 +33,7 @@ Icone nouvelIcone();
 int estDansIcone(Icone I, Vect2 centreCarte, Vect2 posClic);
 
 // Donne des valeurs aléatoire (non aberrente) au vecteur position de l'icone donnée
-void positionAleatoire(Icone* icone);
+void positionAleatoire(Icone* icone, int nbIcones, int i, int offset);
 
 // Donne un scale aléatoire mais cohérent par rapport au nombre d'icones sur la carte (uniquement pour 3 à 10 icones par carte).
 void scaleAleatoire(Icone* icone, int nbIcones);
