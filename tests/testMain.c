@@ -315,7 +315,7 @@ int main(int argc, char **argv)
 	srand(time(NULL));
 
 	if (argc!=2 && argc!=3){
-		printf("dobble: Nombre incorrect d'arguments. Utilisation: ./testMain fichier_cartes (matrice_icones)\n");
+		printf("dobble: Nombre incorrect d'arguments. Utilisation: %s fichier_cartes (matrice_icones)\n",argv[0]);
 		return 1;
 	}
 	
