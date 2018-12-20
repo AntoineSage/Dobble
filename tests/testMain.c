@@ -14,10 +14,6 @@
 #include <automate.h>
 #include <unistd.h>
 
-
-/// Etat du compte à rebous (lancé/non lancé)
-static bool timerRunning = false;
-
 static Plateau PlateauCourant;
 static Etat etatCourant;
 static Vect2 mousePosition;
@@ -133,7 +129,7 @@ void onMouseMoveMenuDebut() {}
 void onMouseClickMenuDebut() {
 	// Si l'on clique sur le bouton Jouer alors, lancer le jeu
 	if(distanceSquaredBetween(mousePosition, newVect2(MAIN_MENU_PLAY_POS_X, MAIN_MENU_PLAY_POS_Y)) <= pow(MAIN_MENU_PLAY_RADIUS, 2)) {
-		etatSuivant(&etatCourant, Play);
+		etatSuivant(&etatCourant, Jouer);
 	}
 }
 
@@ -185,7 +181,7 @@ void onMouseClickJeu() {
 		PlateauCourant.TempsRestant=PlateauCourant.TempsRestant-3;
 		
 		// On vérifie que la partie n'est pas terminée
-		if(lose(&PlateauCourant)) etatSuivant(&etatCourant, Perdu);
+		if(lose(&PlateauCourant)) etatSuivant(&etatCourant, FinJeu);
 	}
 	requestRedraw();
 }
@@ -194,7 +190,7 @@ void onTimerTickJeu() {
 	PlateauCourant.TempsRestant--;
 
 	// On vérifie que la partie n'est pas terminée
-	if(lose(&PlateauCourant)) etatSuivant(&etatCourant, Perdu);
+	if(lose(&PlateauCourant)) etatSuivant(&etatCourant, FinJeu);
 
 	requestRedraw();
 }
@@ -308,7 +304,6 @@ void InitJeu() {
 	PlateauCourant.Score = 0;
 	PlateauCourant.TempsRestant = 30;
 	startTimer();
-	timerRunning = true;
 }
 
 // --------------------------------------------------------------
@@ -334,7 +329,7 @@ int main(int argc, char **argv)
 	etatCourant = MenuDebut;
 
 	// Lecture du fichier avec toutes les cartes
-    PlateauCourant = fichierVersPlateau(DATA_DIRECTORY "/pg26.txt");
+    PlateauCourant = fichierVersPlateau(DATA_DIRECTORY "/pg22.txt");
 	
 	// Initialisation des posiions aléatoires des icones sur les cartes (lent pour 9 et 10 icones, des optimisations sont encore nécessaire)
 	initCardsIconsPositions(&PlateauCourant);
@@ -356,7 +351,7 @@ void etatSuivant(Etat* etatCourant, Transition t) {
         case MenuDebut:
             switch (t)
             {
-                case Play :
+                case Jouer :
 					Sortie(Jeu);
                     *etatCourant = Jeu;
 					break;
@@ -369,9 +364,7 @@ void etatSuivant(Etat* etatCourant, Transition t) {
         case Jeu:
             switch (t)
             {
-                case Quitter :
-                case Perdu :
-                case Gagner :
+                case FinJeu :
 					Sortie(MenuFin);
                     *etatCourant =  MenuFin;
 					break;

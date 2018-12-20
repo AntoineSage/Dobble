@@ -36,9 +36,8 @@ void positionAleatoire(Icone* icone) {
 								distance * sin(angle));
 }
 
-void scaleAleatoire(Icone* icone) {
-	// Une valeur aléatoire entre 0.6 et 1.1
-	icone -> scale = (((float)rand())/((float) RAND_MAX))/2 + 0.5;
+void scaleAleatoire(Icone* icone, int nbIcones) {
+	icone -> scale = (((float)rand())/((float) RAND_MAX))/2 + (0.5+(10-nbIcones)*0.1);
 }
 
 void rotationAleatoire(Icone* icone) {

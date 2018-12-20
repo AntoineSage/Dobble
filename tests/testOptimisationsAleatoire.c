@@ -132,7 +132,7 @@ void onMouseMoveMenuDebut() {}
 void onMouseClickMenuDebut() {
 	// Si l'on clique sur le bouton Jouer alors, lancer le jeu
 	if(distanceSquaredBetween(mousePosition, newVect2(MAIN_MENU_PLAY_POS_X, MAIN_MENU_PLAY_POS_Y)) <= pow(MAIN_MENU_PLAY_RADIUS, 2)) {
-		etatSuivant(&etatCourant, Play);
+		etatSuivant(&etatCourant, Jouer);
 	}
 }
 
@@ -184,7 +184,7 @@ void onMouseClickJeu() {
 		PlateauCourant.TempsRestant=PlateauCourant.TempsRestant-3;
 		
 		// On vérifie que la partie n'est pas terminée
-		if(lose(&PlateauCourant)) etatSuivant(&etatCourant, Perdu);
+		if(lose(&PlateauCourant)) etatSuivant(&etatCourant, FinJeu);
 	}
 	requestRedraw();
 }
@@ -193,7 +193,7 @@ void onTimerTickJeu() {
 	PlateauCourant.TempsRestant--;
 
 	// On vérifie que la partie n'est pas terminée
-	if(lose(&PlateauCourant)) etatSuivant(&etatCourant, Perdu);
+	if(lose(&PlateauCourant)) etatSuivant(&etatCourant, FinJeu);
 
 	requestRedraw();
 }
@@ -348,7 +348,7 @@ int main(int argc, char **argv)
 		// Initialisation aléatoire de chaque icone
 		for(j = 0; j < carte -> nbIcones; j++) {
 			Icone* ic = &(carte -> icones[j]);
-			scaleAleatoire(ic);
+			scaleAleatoire(ic, carte -> nbIcones);
 			rotationAleatoire(ic);
 
 			//positionAleatoire(ic);
@@ -372,7 +372,7 @@ int main(int argc, char **argv)
 				compteur = 0;
 				for(j = 0; j < carte -> nbIcones; j++) {
 					Icone* ic = &(carte -> icones[j]);
-					scaleAleatoire(ic);
+					scaleAleatoire(ic, carte -> nbIcones);
 					rotationAleatoire(ic);
 
 				//positionAleatoire(ic);
@@ -411,7 +411,7 @@ void etatSuivant(Etat* etatCourant, Transition t) {
         case MenuDebut:
             switch (t)
             {
-                case Play :
+                case Jouer :
 					Sortie(Jeu);
                     *etatCourant = Jeu;
 					break;
@@ -424,9 +424,7 @@ void etatSuivant(Etat* etatCourant, Transition t) {
         case Jeu:
             switch (t)
             {
-                case Quitter :
-                case Perdu :
-                case Gagner :
+                case FinJeu :
 					Sortie(MenuFin);
                     *etatCourant =  MenuFin;
 					break;

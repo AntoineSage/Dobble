@@ -96,7 +96,7 @@ void setIconsInCard(Carte* carte) {
 	// Initialisation aléatoire de chaque icone
 	for(i = 0; i < carte -> nbIcones; i++) {
 		Icone* ic = &(carte -> icones[i]);
-		scaleAleatoire(ic);
+		scaleAleatoire(ic, carte -> nbIcones);
 		rotationAleatoire(ic);
 
 		//positionAleatoire(ic);
@@ -123,7 +123,7 @@ void setIconsInCard(Carte* carte) {
 			compteur = 0;
 			for(i = 0; i < carte -> nbIcones; i++) {
 				Icone* ic = &(carte -> icones[i]);
-				scaleAleatoire(ic);
+				scaleAleatoire(ic, carte -> nbIcones);
 				rotationAleatoire(ic);
 
 			//positionAleatoire(ic);
