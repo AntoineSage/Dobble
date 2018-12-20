@@ -311,25 +311,35 @@ void InitJeu() {
 // --------------------------------------------------------------
 int main(int argc, char **argv)
 {
+	char matIcones[]="../data/Matrice8x10_Icones90x90.png";
 	srand(time(NULL));
 
+	if (argc!=2 && argc!=3){
+		printf("dobble: Nombre incorrect d'arguments. Utilisation: ./testMain fichier_cartes (matrice_icones)\n");
+		return 1;
+	}
+	
 	if (!initializeGraphics())
 	{
 		printf("dobble: Echec de l'initialisation de la librairie graphique.\n");
 		return 1;
 	}
 
-	if (loadIconMatrix(DATA_DIRECTORY "/Matrice12x10_Icons90x90_BandW.png") != 1)
+	if(argc==3) //Chargement optionnel d'une matrice d'icone donnée en parametre
+	{
+		strcpy(matIcones,argv[2]);
+	}
+
+	if (loadIconMatrix(matIcones) != 1)
 	{
 		printf("dobble: Echec du chargement des icônes.\n");
 		return -1;
 	}
-
 	// Init de l'état courant de l'automate qui gère les différentes phases de jeu
 	etatCourant = MenuDebut;
 
 	// Lecture du fichier avec toutes les cartes
-    PlateauCourant = fichierVersPlateau(DATA_DIRECTORY "/pg22.txt");
+    PlateauCourant = fichierVersPlateau(argv[1]);
 	
 	// Initialisation des posiions aléatoires des icones sur les cartes (lent pour 9 et 10 icones, des optimisations sont encore nécessaire)
 	initCardsIconsPositions(&PlateauCourant);

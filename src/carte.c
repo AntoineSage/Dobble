@@ -110,7 +110,7 @@ void setIconsInCard(Carte* carte) {
 	// On les fait évoluer un minimum de 100 fois et tant qu'ils ne forment pas une carte valide
 	while(!(carteIsValid(carte))) {
 		/*
-		Si on a fais autant d'évolution sans que la carte ne soit valide, 
+		Si on a fait autant d'évolutions sans que la carte ne soit valide, 
 		c'est sûrement que la carte est bloquée dans un état où elle ne peut pas être valide.
 		Donc on recommence depuis le début pour cette carte.
 		C'est une solution temporaire lente mais qui fonctionne !
