@@ -34,17 +34,6 @@ Vect2 addVect2(Vect2 vect1, Vect2 vect2) {
     return newVect2(vect1.x + vect2.x, vect1.y + vect2.y);
 }
 
-// Vect2 constraintVect2(Vect2 v, float max) {
-//     Vect2 vRet = newVect2(v.x, v.y);
-
-//     if(v.x > max) vRet.x = max;
-//     else if(v.x < -max) vRet.x = -max;
-    
-//     if(v.y > max) vRet.y = max;
-//     else if(v.y < -max) vRet.y = -max;
-//     return vRet;
-// }
-
 float distanceBetween(Vect2 v1, Vect2 v2) {
     return moduleVect2(newVect2(v1.x - v2.x, v1.y - v2.y));
 }

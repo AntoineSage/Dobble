@@ -41,11 +41,4 @@ void scaleAleatoire(Icone* icone);
 // Donne une rotation aléatoire entre 0 et 360
 void rotationAleatoire(Icone* icone);
 
-// void angleAleatoire(Icone* icone);
-
-// void fromComplexToXY(Icone* icone);
-// void fromXYtoComplex(Icone* icone);
-
-// void updateIcone(Icone* icone);
-
 #endif /* _ICONE_ */

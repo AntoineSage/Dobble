@@ -1,9 +1,4 @@
 #include <stdbool.h>
-
-/**
- * pour mac os x, et suivant l'installation de la librairie SDL2, vous devrez éventuellement adapter les trois lignes suivantes
- *
-**/
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>

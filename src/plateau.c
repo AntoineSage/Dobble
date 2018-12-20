@@ -8,7 +8,7 @@ Image Clic_a_l_interieur(Plateau P, Vect2 centerCard, Vect2 posClic){
 	Image I=-1;
 	Carte H=P.haut;
 
-	// Pour chaque icones
+	// Pour chaque icone
 	for (i=0; i<H.nbIcones;i++){
 
 		// Si l'on a cliqué sur l'icone
@@ -19,7 +19,7 @@ Image Clic_a_l_interieur(Plateau P, Vect2 centerCard, Vect2 posClic){
 		}
 	}
 
-	// Si I n'a pas été changé on renvoi -1 (indication qu'aucun icone n'a été cliqué)
+	// Si I n'a pas été changé on renvoie -1 (indication qu'aucun icone n'a été cliqué)
 	return I;
 }
 
@@ -39,21 +39,6 @@ Plateau nouveauPlateau() {
     return plateau;
 }
 
-// void afficherPlateauPioche(Plateau* p) {
-//     int i;
-//     for(i = 0 ; i < p -> nbCartes; i++) {
-//         printf("Carte %d : ", i+1);
-        
-//         Carte* carte = &(p -> pioche[i]);
-
-//         int j;
-//         for(j = 0; j < carte -> nbIcones; j++) {
-//             printf(" %d", (&(carte -> icones[j])) -> image);
-//         }
-
-//         printf("\n");
-//     }
-// }
 
 Carte choisitCarteAleatoire(Plateau* P){
 	// Si l'on a pioché toutes les cartes
@@ -79,6 +64,10 @@ Carte choisitCarteAleatoire(Plateau* P){
 	P->nbCartesMarquees++;
 	P->Marques[indice]=1;
 
+	//L'historique contient les indices des 3 dernieres cartes du plateau. Utile après une remise à 0
+	// des cartes marquees (càd lorsque toutes les cartes ont été vues) pour éviter le risque d'avoir deux cartes
+	// identiques à la suite: la premiere avant la remise à 0, la deuxieme après.
+	// On suppose qu'il ne peut pas y avoir moins de 3 cartes sur le plateau
 	P->historique[0] = P->historique[1];
 	P->historique[1] = P->historique[2];
 	P->historique[2] = indice;
